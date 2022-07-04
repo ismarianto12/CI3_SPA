@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|css|fonts|js|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php/$1 [L]
+  
+<FilesMatch "\.(ini|json|log|sh|lock|env|txt|xls)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
